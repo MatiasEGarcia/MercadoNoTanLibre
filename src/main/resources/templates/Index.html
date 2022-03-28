@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace="layout/headYScript :: head">
+        <title>INDEX</title> 
+    </head>
+    <body>
+
+        <div th:replace="layout/alertas :: alertas"></div>
+
+
+        <header th:replace="layout/header :: header"></header>
+
+
+        <nav th:replace="layout/nav :: nav"></nav>
+
+        <content id="content">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+            </div>
+
+            <!--            <div th:if="${productosConOferta!=null and !productosConOferta.empty}" th:replace="layout/swiperOfertas :: swiperOfertas"></div>
+            
+                        <br>
+                            <br>
+            
+                                <div th:remplace="layout/listadoProductos :: listadoProductos"></div>
+            
+            
+                                <div th:replace="layout/listadoCategorias :: listadoCategorias"></div>-->
+
+        </content>
+
+        <br>
+
+            <div th:replace="layout/footer :: footer"></div>
+
+
+
+            <div th:replace="layout/headYScript :: linksScript"></div>
+
+
+
+    </body>
+
+</html>

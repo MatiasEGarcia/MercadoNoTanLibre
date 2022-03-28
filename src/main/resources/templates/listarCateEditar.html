@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/headYScript :: head">
+        <title>Pagina para listar las categorias y editar</title>
+    </head>
+    <body>
+        <div th:replace="layout/alertas :: alertas"></div>
+
+
+        <header th:replace="layout/header :: header"></header>
+
+
+        <nav th:replace="layout/nav :: nav"></nav>
+
+        <div id="content">
+            <table class="table caption-top" id="lista__categorias__editar">
+                <caption class="text-right display-5 mb-2">Lista de Categorias</caption>
+                <thead>
+                    <tr>
+                        <th scope="col"> <a class="h6" th:href="@{/categoriaC/listarCateEditar/}+ '?pageNo=' + ${paginaActual} + '&sortField=idCategoria&sortDir=' + ${reverseSortDir}+ '&pageSize=' + ${pageSize}">#Id</a> </th>
+                        <th scope="col"> <a class="h6" th:href="@{/categoriaC/listarCateEditar/}+ '?pageNo=' + ${paginaActual} + 'sortField=nombre&sortDir=' + ${reverseSortDir} + '&pageSize=' + ${pageSize}">#Nombre</a></th>
+                        <th scope="col"> <a class="h6" th:href="@{/categoriaC/listarCateEditar/}+ '?pageNo=' + ${paginaActual} + 'sortField=estado&sortDir=' + ${reverseSortDir} + '&pageSize=' + ${pageSize}">#Estado</a> </th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria: ${categorias}">
+                        <td th:text="${categoria.idCategoria}"></td>
+                        <td th:text="${categoria.nombre}"></td>
+                        <td th:text="${categoria.estado}"></td>
+                        <td>
+                            <img th:src="${'data:image/jpeg;charset=utf-8;base64,' + categoria.imagen}"  th:alt="${categoria.imagen}" style="max-width: 40px">
+                        </td>
+                        <td>
+                            <a role="button" class="btn btn-primary" th:href="@{/categoriaC/agregarEditarCategoria/} + '?categoria=' + ${categoria.idCategoria} ">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div th:if="${paginasTotales > 1}" id="lista__categorias__editar__paginacion">
+                <div class="row col-sm-10 gy-3">
+                    <div class="col-sm-3">
+                        Total de elementos: [[${totalItems}]]
+                    </div>
+                    <div class="col-sm-2">
+                        <span th:each="i: ${#numbers.sequence(1,paginasTotales)}">
+                            <a th:if="${paginaActual!=i}" th:href="@{/categoriaC/listarCateEditar/}+  '?pageNo=' + ${i} + 'sortField='+ ${sortField} + '&sortDir=' + ${sortDir} + '&pageSize=' + ${pageSize}">[[${i}]]</a>
+                            <span th:unless="${paginaActual!=i}">[[${i}]]</span> &nbsp;&nbsp;
+                        </span>
+                    </div>
+                    <div class="col-sm-1">
+                        <a th:if="${paginaActual < paginasTotales}" th:href="@{/categoriaC/listarCateEditar/} +  '?pageNo=' +  ${paginaActual+1} + 'sortField='+ ${sortField} + '&sortDir=' + ${sortDir} + '&pageSize=' + ${pageSize}">Siguiente</a>
+                        <span th:unless="${paginaActual < paginasTotales}" >Siguente</span>
+                    </div>
+                    <div class="col-sm-1">
+                        <a th:if="${paginaActual<paginasTotales}" th:href="@{/categoriaC/listarCateEditar/} +  '?pageNo=' + ${paginasTotales} + 'sortField='+ ${sortField} + '&sortDir=' + ${sortDir} + '&pageSize=' + ${pageSize}">Ultima</a>
+                        <span th:unless="${paginaActual < paginasTotales}">Ultima</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br>
+
+            <div th:replace="layout/footer :: footer"></div>
+
+
+
+            <div th:replace="layout/headYScript :: linksScript"></div>
+
+
+
+    </body>
+</html>

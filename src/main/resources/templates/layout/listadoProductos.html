@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Pagina de listado de productos para el index</title>
+    </head>
+    <body>
+        <div th:fragment="listadoProductos" id="listado__productos">
+            <h2 class="display-6" style="text-align: center;">Nuestros Productos</h2>
+
+            <div class="container opciones my-2">
+                <div class="row">
+
+                    <div class="col">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Mas baratos</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Mas caros</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Otro</label>
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <span class="input-group-text">Minimo y Maximo</span>
+                            <input type="text" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="Last name" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2 col-5" style="margin:auto">
+                    <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+
+                </div>
+            </div>
+
+
+            <div class="lista__producto py-2" style="background:  rgba(197, 196, 196, 0.205);">
+                <div class="productos" th:each="producto:${productos}">
+
+                    <a class="card__link">
+                        <div class="card col-1 mb-2" style="min-width: 12rem;">
+                            <div class="card-header">
+                                <button type="submit" class="btn btn-outline heart__tarjeta"><i class="fas fa-heart"></i></button>
+                                <img src="../Img/Nokia 23 M 32gb 2gb Gris Oscuro.webp" class="card-img-top img-fluid"
+                                     alt="Nokia 23 M 32gb 2gb Gris Oscuro">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${producto.nombre}"></h5>
+                                <h6 th:text="${producto.precio}">$18.399</h6>  
+                                <h6 th:text="%+${producto.precioDescuento}"></h6>
+                                <button class="btn btn-outline-primary btn-sm my-2">Añadir al carrito<i
+                                        class="fas fa-plus-square"></i></button>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="container" th:if="${paginasTotalesProd > 1}" id="lista__productos___paginacion">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <div th:each="i: ${#numbers.sequence(1,paginasTotales)}">
+                                <li th:if="${paginaActual!=i}" class="page-item"><a class="page-link" href="#">[[${i}]]</a></li>
+                                <li th:unless="${paginaActual!=i}"><span>[[${i}]]</span></li>
+                            </div>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

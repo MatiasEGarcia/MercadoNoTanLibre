@@ -1,0 +1,270 @@
+
+
+.redes__sociales i {
+  font-size: 2.5rem;
+}
+
+
+/*--------------------NAV*/
+
+#boton__de__logout{
+    background: none;
+    border: none;
+}
+
+
+/*------------------------------tarjetas*/
+
+.fa-heart{
+  font-size: 2rem;
+  position: absolute;
+  z-index: 1;
+}
+
+.card-header .heart__tarjeta{
+  position: absolute;
+}
+
+
+.fa-heart:hover{
+  cursor: pointer;
+  color: red;
+}
+
+.fa-heart:focus{
+  color: red;
+}
+
+.card__link{
+  text-decoration: none;
+  margin: auto;
+}
+
+.card__link:hover{
+  cursor: pointer;
+}
+
+.card{
+  margin: auto;
+  color: black;
+}
+
+.card:hover{
+  box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.card:active{
+  z-index: 100;
+}
+
+
+.card img {
+  height: 12rem;
+  width: 11rem;
+}
+/*-------------------------swiper__ofertas*/
+
+#swiper__ofertas{
+  margin-top: 2rem;
+  /*Para cancelar el scroll horizontal que se me produce con el swiper*/
+  overflow-x: hidden;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(197, 196, 196, 0.205);
+  padding: 2rem 0; 
+}
+
+.swiper-slide {
+  
+  font-size: 18px;
+  
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+
+.productos{
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+
+.categorias{
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ 
+}
+
+/*-----------------pagina ingresar*/
+
+.seccion__principal{
+  margin: 0 auto;
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
+
+
+#contenedor__ingreso .fa-user{
+  font-size: 6rem;
+  margin-top: -2rem;
+}
+
+
+
+#formulario__ingreso .form-group{
+  margin: 1rem auto;
+  width: 90%
+}
+
+
+/*--------------------------pagina Registrar*/
+
+.seccion__principal__registro{
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+#contenedor__registro .fa-user{
+  font-size: 6rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+
+/*-------------------------------pagina Detalle de Producto*/
+
+.contenedor__imagen__producto{
+  width: 13rem;
+  height: auto;
+  margin: auto;
+  border-bottom:1px solid thistle;
+}
+
+.detalle__producto{
+  border-left: rgba(0, 0, 0, 0.274) 1px solid;
+}
+
+#formulario__comentario{
+  padding-bottom: 2rem;
+  border-bottom: rgba(0, 0, 0, 0.274) 1px solid;
+  
+}
+
+.comentario{
+  margin-bottom: 2rem;
+}
+
+.comentario textarea{
+  width: 90%;
+  resize: none;
+}
+
+.comentario label{
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.ofertas__relacionadas{
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  background:  rgba(197, 196, 196, 0.205);
+}
+
+/*-------------------------------------------pagina FavCarCompras*/
+
+.lista__opciones li{
+  margin: 0.5rem 0;
+}
+
+.todas__opciones{
+  display: flex;
+  justify-content: space-between;  
+}
+
+.li__select{
+  width: 100%;
+}
+
+
+.opciones__categorias{
+  margin: 0  auto;
+}
+
+.todas__opciones .dropdown{
+  width: 30rem;
+}
+
+
+.li__boton__submit{
+  width: 8rem;
+}
+
+
+.submit__aplicar{
+  width: 100%;
+}
+
+/*-----------------------------------------agregarProducto,agregarCategoria*/
+
+#agregar__producto, #agregar__categoria{
+    max-width: 80%;
+}
+
+
+
+
+/*-------------------------Pagina listarProductoParaEditar*/
+
+#lista__productos__editar a, #lista__categorias__editar a{
+    text-decoration: none;
+    border: none;
+}
+#lista__productos__editar__paginacion a,lista__categorias__editar__paginacion a{
+    text-decoration: none;
+    border: none;
+}
+
+/*-------------------------EditarCategoriasYProductos*/
+.imagen__actual{
+    max-width: 300px;
+    margin-top: 2%;
+}
+
+
+
+@media (min-width: 576px) { 
+  body {
+    max-width: 90%;
+    margin: auto;
+  }
+
+ }
+
+ @media (min-width: 992px) { 
+  .todas__opciones{
+    display: flex;
+    flex-direction:column;
+  }
+ }
+

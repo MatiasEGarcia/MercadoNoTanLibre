@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Pagina del swiper</title>
+    </head>
+    <body>
+         <div th:fragment="swiperOfertas"  id="swiper__ofertas">
+                <h2 class="display-6" style="text-align: center;">Ofertas</h2>
+
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" th:each="producto:${productosConOferta}">
+                        
+                        <div class="swiper-slide">
+                            
+                            <a th:href="@{/detalleProducto}" style="text-decoration: none;"><!--en el link tambien tendria que ir id del prodcuto-->
+                                <div class="card col-1 text-dark" style="min-width: 12rem;">
+                                    <div class="card-header">
+                                        <button type="submit" class="btn btn-outline"><i class="fas fa-heart"></i></button>
+                                        <img class="card-img-top img-fluid" th:src="@{'/imgData/' + ${producto.imagen}}"  th:alt="${producto.imagen}">
+                                    </div>
+                                    <div class="card-body text-left">
+                                        <h5 class="card-title" th:text="${producto.nombre}"> </h5>
+                                        <h6 th:text="${producto.precio}"></h6>
+                                        <h6 th:text="%${producto.precioDescuento}"></h6>
+                                        <button class="btn btn-outline-primary btn-sm my-2">Añadir al carrito<i
+                                                class="fas fa-plus-square"></i></button>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>  
+                </div>
+            </div>
+    </body>
+</html>

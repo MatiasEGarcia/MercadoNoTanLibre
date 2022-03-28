@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace="layout/headYScript :: head">
+        <title>TODO supply a title</title>
+
+
+    </head>
+    <body>
+        <div th:replace="layout/alertas :: alertas"></div>
+
+
+        <header th:replace="layout/header :: header"></header>
+
+
+        <nav th:replace="layout/nav :: nav"></nav>
+
+        <content id="content">
+            <div class="row gy-5">
+                <div class="col col-md-7">
+                    <h5 class="display-5">Producto</h5>
+                    <form id="agregar__producto" th:action="@{/productoC/guardarProducto}" th:object="${producto}"  method="POST" enctype="multipart/form-data"><!--El enctype es para indicar al navegador que puede haber carga de archivos-->
+                        <input type="hidden" name="idProducto" th:field="*{idProducto}"/>
+                        <input type="hidden" name="esNuevo" th:value="${producto.idProducto==null}"/>
+                        <input type="file" hidden="true" name="imagenVieja" th:value="${producto.imagen}"/>
+
+                        <div class="form_group">
+                            <label for="nombre" class="form-label">NOMBRE:</label>
+                            <input id="nombre" type="text" class="form-control" th:field="*{nombre}" th:placeholder="${producto.nombre}">
+                        </div>
+                        <div class="form_group">
+                            <label for="marca" class="form-label">MARCA:</label>
+                            <input id="marca" type="text" class="form-control" th:field="*{marca}" th:placeholder="${producto.nombre}">
+                        </div>
+                        <div class="form_group">
+                            <label for="precio" class="form-label">PRECIO:</label>
+                            <input id="precio" type="number" class="form-control" th:field="*{precio}" th:placeholder="${producto.nombre}">
+                        </div>
+                        <div class="form_group">
+                            <label for="stock" class="form-label">STOCK:</label>
+                            <input id="stock" type="number" class="form-control" th:field="*{stock}" th:placeholder="${producto.nombre}">
+                        </div>
+                        <div class="form_group">
+                            <label for="descuento" class="form-label">Tiene descuento?</label>
+                            <input id="descuento" type="number" class="form-control" th:field="*{precioDescuento}" th:placeholder="${producto.nombre}" >
+                        </div>
+                        <br>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="imagen" name="file">
+                            </div>
+
+                            <br>
+
+                                <h5>Establecer categorias de producto</h5>
+
+                                <div th:each="categoria:${categoriasActivas}">
+                                    <div class="form-check mt-2">
+                                        <input class="form-check-input" name="boxCategorias" type="checkbox" th:value="${categoria.idCategoria}" th:checked="${categoria.enProducto} ? 'checked'">              
+                                            <label class="form-check-label" th:text="${categoria.nombre}"></label>
+                                    </div>
+                                </div>
+
+                                <br>
+                                    <button class="btn btn-success w-50" type="submit"> Hecho <i class="fas fa-check"></i></button>
+
+                                       
+                                    </form>
+                                    </div>
+
+                                    <div th:if="${producto.getImagen!=null}"      class="text-center col col-md-5"> 
+                                        <h3>Imagen actual</h3>
+                                        <img class="imagen__actual" th:src="${'data:image/jpeg;charset=utf-8;base64,' + producto.imagen}"  th:alt="${producto.nombre}">
+                                    </div>
+
+                                    </div>
+                                    </content>
+
+                                    <br>
+
+
+
+                                        <div th:replace="layout/footer :: footer"></div>
+
+
+
+                                        <div th:replace="layout/headYScript :: linksScript"></div>
+
+                                        </body>
+                                        </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/headYScript :: head">
+        <title>crearCuenta</title>
+
+    </head>
+    <body>
+        
+        <header th:replace="layout/header :: header"></header>
+
+        
+        <nav th:replace="layout/nav :: nav"></nav>
+
+        <content id="content">
+
+            <div class="modal-dialog text-center">
+                <div class="col-sm-8 seccion__principal__registro">
+                    <div class="modal-content" id="contenedor__registro">
+                        <div class="col-12 user-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item px-3" role="presentation">
+                                <a class="nav-link active" id="pills-persona-tab" data-bs-toggle="pill"
+                                   href="#pills-persona" role="tab" aria-controls="pills-persona"
+                                   aria-selected="true">Datos Personales</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-usuario-tab" data-bs-toggle="pill" href="#pills-usuario"
+                                   role="tab" aria-controls="pills-usuario" aria-selected="false">Datos de Usuario</a>
+                            </li>
+                        </ul>
+                        <form class="col-12 mb-4">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-persona" role="tabpanel" aria-labelledby="pills-persona-tab">
+                                    <div class="container" id="formulario__registro__persona">
+                                        <div class="row g2 gy-3">
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="text" class="form-control" placeholder="Nombres">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="text" class="form-control" placeholder="Apellidos">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="tel" class="form-control" placeholder="Telefono">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="email" class="form-control" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-8 ">
+                                                <div class="form_group">
+                                                    <input type="text" class="form-control" placeholder="Direccion">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-usuario" role="tabpanel"
+                                     aria-labelledby="pills-usuario-tab">
+                                    <div class="col-12" id="formulario__registro__usuario">
+                                        <div class="row gy-3 px-3">
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="password" class="form-control" placeholder="Contraseña">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <input type="password" class="form-control"
+                                                           placeholder="Repita Contraseña">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form_group">
+                                                    <button class="btn btn-success" type="submit">
+                                                        Guardar
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </content>
+
+        
+        <footer th:replace="layout/footer :: footer"></footer>
+
+
+
+       
+        <div th:replace="layout/headYScript :: linksScript"></div>
+
+    </body>
+</html>

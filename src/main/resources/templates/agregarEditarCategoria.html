@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/headYScript :: head">
+        <title>Pagina para agregar o editar una categoria</title>
+
+    </head>
+    <body>
+        <div th:replace="layout/alertas :: alertas"></div>
+
+
+        <header th:replace="layout/header :: header"></header>
+
+
+        <nav th:replace="layout/nav :: nav"></nav>
+
+
+        <content id="content">
+            <div class="row gy-5">
+                <div class="col col-md-7">
+                    <br>
+                        <h5 class="display-5">Agregar Nueva Categoria</h5>
+
+                        <form id="agregar__categoria" th:action="@{/categoriaC/guardarCategoria}" th:object="${categoria}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/> 
+                            <input type="hidden" name="esNuevo" th:value="${categoria.idCategoria==null}"/>
+                            <input type="text" hidden="true" name="imagenVieja" th:value="${categoria.imagen}"/> 
+
+                            <div class="form_group">
+                                <label for="nombre" class="form-label">NOMBRE:</label>
+                                <input id="nombre" name="nombre" type="text" th:field="*{nombre}" class="form-control" th:placeholder="${categoria.nombre}">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" th:field="*{estado}" value="activo" type="radio" name="flexRadio" id="radio__activo" th:checked="${categoria.estado=='activo'}" ? 'checked' :' '>
+                                    <label class="form-check-label" for="radio__activo">
+                                        Activo
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" th:field="*{estado}" value="noActivo" type="radio" name="flexRadio" id="radio__no__activo" th:checked="${categoria.estado=='noActivo'}" ? 'checked' :''>
+                                    <label class="form-check-label" for="radio__no__activo">
+                                        No activo
+                                    </label>
+                            </div>
+                            <br>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="imagen" name="file">
+                                </div>
+
+                                <br>
+                                    <button class="btn btn-success w-50" type="submit">Hecho<i class="fas fa-check"></i></button>
+                                    </form>
+                                    </div>
+
+                                    <div th:if="${categoria.getImagen!=null}"      class="text-center col col-md-5" >
+                                        <h3>Imagen actual</h3>
+                                        <img class="imagen__actual" th:src="${'data:image/jpeg;charset=utf-8;base64,' + categoria.imagen}"   th:alt="${categoria.imagen}" name="imagenVIeja">
+                                    </div>
+
+
+                                    </div>
+
+                                    </content>
+
+                                    <br>
+
+                                        <div th:replace="layout/footer :: footer"></div>
+
+
+
+                                        <div th:replace="layout/headYScript :: linksScript"></div>
+
+                                        </body>
+                                        </html>
